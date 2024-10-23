@@ -18,3 +18,5 @@
 --> Question : Comment gérer le fait de laisser un blanc et de pas mettre un biscuit pck il est plus smart de ne pas mettre un biscuit pour éviter une anomalie ? Idée : inventer le biscuit vide (quelle longueur il a ?)
 
 --> Le set d'action : {Placer le biscuit 0,1,2,3 ou le biscuit -1,-2,-3,-4,-5,-6,-7 (qui correspondent aux biscuits vides de différentes size)}
+
+test par troncons de 100m pour des soucis d'efficacité et de temps de calculs
