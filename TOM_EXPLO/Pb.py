@@ -156,12 +156,14 @@ class BiscuitOptimization:
                 possible_actions = self.actions(state)
                 if possible_actions:
                     action = random.choice(possible_actions)  # Choisir une action aléatoire
-                    state = self.result(state, action)  # Appliquer l'action à l'état
+                    self.result(state, action)  # Appliquer l'action à l'état (sans réaffecter)
                 else:
                     break
             population.append(state)
         return population
     
+    
+
     def fitness(self, state):
         """
         Calcule la valeur de l'état (fitness) en fonction des biscuits placés.
