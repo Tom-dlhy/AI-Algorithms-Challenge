@@ -148,7 +148,7 @@ class BiscuitOptimization:
         Returns:
             bool: True si tous les chunks sont remplis, sinon False.
         """
-        return state.current_pos == self.num_chunks
+        return state.current_pos == self.num_chunks - 1
 
 
 
