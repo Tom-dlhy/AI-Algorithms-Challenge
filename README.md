@@ -1,22 +1,54 @@
-# AI-Algorithms-Challenge
+# 🍪 Biscuit Optimization
 
+The **Biscuit Optimization** project aims to maximize the profit of a biscuit manufacturing process by optimizing the placement of biscuits on a continuous dough strip. This project involves solving a complex optimization problem where various biscuits with different sizes and values need to be placed efficiently while avoiding defective areas on the dough.
 
-### DEADLINE :  
-- The deadline for submitting your notebook is Friday, December 13th
-- The deadline to complete this file and finalize your teams is November 10th : [Lien du forms](https://devinci-my.sharepoint.com/personal/farah_ait_salaht_devinci_fr/_layouts/15/guestaccess.aspx?share=EZdFUA_tCwxPln2I6hc5lsoBlhwFgfvxdLYLHvs2hVZjPA&e=Mya4tS)
+## 📋 Project Overview
 
-### Modélisation :
+In the biscuit manufacturing industry, efficient use of the dough is critical to minimize waste and maximize profit. This project tackles the optimization challenge by:
+- Identifying and handling defects on the dough strip.
+- Selecting and placing biscuits based on their size and profit potential.
+- Balancing the trade-off between maximizing the number of biscuits placed and minimizing empty spaces.
 
---> Goal state : pâte remplie avec le profit maximum (profit des biscuits - perte)
+The solution employs heuristic algorithms and custom optimization strategies to achieve an optimal placement configuration.
 
---> Approche : discretizer en case (exemple 500 cases de 1 unité de x avec donc un certain nombre de defects par case) et on augmente les bins au fur et à mesure pour gagner en précision (et en temps mdrr)
+## 🛠️ Technologies Used
 
---> Deux axes de progressios : - Pour un même nombre de bins on va trouver une solution optimale (coût minimum peut-être pas le même chemin mais coût minimum quand même) et l'axe d'optimisation c'est l'algo le plus rapide pour trouver la solution 
+- **Programming Language**: Python
+- **Libraries**: Pandas, NumPy, Matplotlib (for data visualization)
+- **Optimization Techniques**: Heuristic algorithms, profit maximization, chunk-based analysis
 
-                               - Une fois l'algo le plus rapide trouver, on augmente le nombre de bins pour gagner en précision et on va forcément mettre plus de temps à résoudre d'où le fait de trouver le meilleur algo avant. 
-                                 Les deux axes sont donc vitesse et minimisation du coût.
---> Question : Comment gérer le fait de laisser un blanc et de pas mettre un biscuit pck il est plus smart de ne pas mettre un biscuit pour éviter une anomalie ? Idée : inventer le biscuit vide (quelle longueur il a ?)
+## 🧩 Project Structure
 
---> Le set d'action : {Placer le biscuit 0,1,2,3 ou le biscuit -1,-2,-3,-4,-5,-6,-7 (qui correspondent aux biscuits vides de différentes size)}
+The project is organized into several key classes:
 
-test par troncons de 100m pour des soucis d'efficacité et de temps de calculs
+- **Biscuit**: Represents a biscuit with attributes such as `name`, `length`, `value`, and `defect_thresholds`.
+- **Chunk**: Represents a segment of the dough strip, with information on its position, defects, and occupation status.
+- **BiscuitOptimization**: Main class for running the optimization process, managing biscuits, chunks, and implementing the placement algorithm.
+
+## ⚙️ Methodology
+
+The optimization process follows these steps:
+
+1. **Data Preparation**:
+   - Load defect data from CSV files, specifying defect positions and classes (e.g., `a`, `b`, `c`).
+   - Segment the dough strip into chunks, each represented by a `Chunk` object.
+
+2. **Defect Analysis**:
+   - Identify defective areas on the dough based on defect data.
+   - Assign defect classes to chunks, with the ability to handle overlapping defects.
+
+3. **Biscuit Placement Strategy**:
+   - Prioritize biscuits based on profitability (size-to-value ratio) and defect thresholds.
+   - Implement a chunk-based analysis to find the optimal placement for each biscuit.
+   - Track empty chunks and adjust the profit calculation accordingly.
+
+4. **Evaluation**:
+   - Calculate the total profit based on the placed biscuits and the cost of empty spaces.
+   - Evaluate the performance of different heuristics (e.g., prioritizing smaller biscuits or high-value biscuits).
+
+## 🧪 Results
+
+The heuristic approach yielded promising results:
+- **Maximized profit** by efficiently placing high-value biscuits while avoiding defective areas.
+- **Reduced waste** by minimizing the number of empty chunks on the dough strip.
+- **Improved flexibility** by allowing adjustments to defect thresholds and biscuit prioritization strategies.
